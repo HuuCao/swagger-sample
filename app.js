@@ -4,9 +4,9 @@ const app = express();
 
 const swaggerUi = require("swagger-ui-express");
 const swagger = require("./swagger");
-const swaggerDocument = require('./swagger.json');
+const swaggerDocument = require("./swagger.json");
 // const openApiSpecification = swagger.openapiSpecification();
-require('dotenv').config();
+require("dotenv").config();
 
 const router = require("./routers/index");
 
@@ -16,7 +16,7 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 app.use("/api", router);
 // app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openApiSpecification));
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen(process.env.PORT || 5000, () => {
     console.log(`Server listening on http://localhost:${process.env.PORT}`);
